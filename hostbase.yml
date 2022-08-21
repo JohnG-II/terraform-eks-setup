@@ -35,3 +35,33 @@ spec:
             name: mavenapp
             port:
               number: 80
+  - host: prometheus.jomokyli.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: prometheus-kube-prometheus-prometheus
+            port:
+              number: 80
+  - host: grafana.jomokyli.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: prometheus-grafana
+            port:
+              number: 80
+  - host: kibana.jomokyli.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: kibana-kibana
+            port:
+              number: 80
