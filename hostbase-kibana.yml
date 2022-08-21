@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kibana.jomokyli.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: kibana-kibana
+            port:
+              number: 5601
